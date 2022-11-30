@@ -26,8 +26,9 @@ else
 sleep 1
 echo -e "$red(figlet)$nc No instalado [$red✗$nc]"
 sleep 1
-echo -e "\e[1;32mInstalando figlet ...\e[0m"
+echo -e "\e[1;33mInstalando\e[0m \e[1;34mfiglet ...\e[0m"
 sleep 3
+setterm -foreground blue
 pkg install figlet
 fi
 
@@ -43,8 +44,9 @@ else
 sleep 1
 echo -e "$red(php)$nc No instalado [$red✗$nc]"
 sleep 1
-echo -e "\e[1;32mInstalando php ...\e[0m"
+echo -e "\e[1;33mInstalando\e[0m \e[1;34mphp ...\e[0m"
 sleep 3
+setterm -foreground blue
 pkg install php -y
 fi
 
